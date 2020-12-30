@@ -1,21 +1,17 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { StyleSheet, Linking, Platform } from "react-native";
 
 const Contact = () => {
-  return (
-    <View style={styles.center}>
-      <Text>This is the contact screen</Text>
-    </View>
-  );
-};
+ 
+  let phoneNumber = '';
 
-const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-  },
-});
+  if (Platform.OS === 'android') {
+    phoneNumber = 'tel:9900789012';
+  }
+  else {
+    phoneNumber = 'telprompt:9900789012';
+  }
+
+  Linking.openURL(phoneNumber);
+};
 
 export default Contact;
