@@ -4,6 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import About from "../screens/About";
 import Contact from "../screens/Contact";
+import Search from "../screens/Search";
+import Profile from "../screens/Profile";
 
 const Stack = createStackNavigator();
 
@@ -32,4 +34,20 @@ const ContactStackNavigator = () => {
   );
 };
 
-export { MainStackNavigator, ContactStackNavigator };
+const SearchStackNavigator = () => {
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+      <Stack.Screen name="Search" component={Search} />
+    </Stack.Navigator>
+  );
+};
+
+const ProfileStackNavigator = () => {
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+      <Stack.Screen name="Profile" component={Profile} />
+    </Stack.Navigator>
+  );
+};
+
+export { MainStackNavigator, ContactStackNavigator, SearchStackNavigator, ProfileStackNavigator };

@@ -1,8 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import { MainStackNavigator, ContactStackNavigator } from './StackNavigator'
+import { MainStackNavigator, ContactStackNavigator, SearchStackNavigator,ProfileStackNavigator } from './StackNavigator'
 
 const Tab = createBottomTabNavigator();
 
@@ -26,11 +27,18 @@ const BottomTabNavigator = () => {
             <MaterialCommunityIcons name="phone" color={color} size={size} />
           ),
         }} />
-        <Tab.Screen name="Search" component={ContactStackNavigator}
+        <Tab.Screen name="Search" component={SearchStackNavigator}
         options={{
           tabBarLabel: 'Search',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="search-web" color={color} size={size} />
+          ),
+        }} />
+        <Tab.Screen name="Profile" component={ProfileStackNavigator}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color}) => (
+            <Icon name="ios-person" color={color} size={26} />
           ),
         }} />
     </Tab.Navigator>
